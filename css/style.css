@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+img {
+    max-width: 100%;
+}
+
+
+header {
+    display: flex;
+    width: 100vw;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    background-color: black;
+
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    padding-top: 1rem;
+    font-size: 3 rem;
+    text-shadow: grey;
+    margin-top: 1rem;
+    padding-bottom: 0.5rem;
+
+}
+
+h2 {
+    display: flex;
+
+    justify-content: center;
+
+    text-align: center;
+    font-size: 1.4;
+    color: black;
+    margin-top: 2rem;
+    transition: 1s 1s all ease;
+
+}
+
+h2:hover {
+    transform: scale(1, 1) translateY(10px);
+    color: blue;
+
+}
+
+.foto-portada {
+    display: flex;
+    width: 90vw;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    border: solid 3px black;
+    border-radius: 5px 5px 3px;
+}
+
+.cartelera {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartelerahover {
+    transform: scale(1, 1) translateY(10px);
+    color: blue;
+
+}
+
+.espectaculo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    border: solid 3px black;
+    border-radius: 10px;
+    width: 60vw;
+    height: 100vh;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+
+.btn-cajita {
+    background: black;
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+    width: 80px;
+    border-radius: 5px;
+}
+
+.btn-cajita {
+    transform: scale(1..1);
+    background-color: blue;
+
+}
+
+.cafe,
+.teatro,
+.uni {
+    border: solid 3px black;
+    border-radius: 10px;
+    padding: 0.5rem;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.cafe:hover,
+.teatro:hover,
+.uni:hover{
+        background-color: grey;
+        border: solid 3px blue;
+
+    }
+
+
+.espectaculo2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    border: solid 3px black;
+    border-radius: 10px;
+    width: 60vw;
+
+
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+h3{
+    font-size: 1.2rem;
+    color: blue;
+}
+h3:hover{
+    transform: scale(1, 1) translateY(10px);
+    color: black;
+
+}
