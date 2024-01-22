@@ -31,39 +31,69 @@
                 <div class="espectaculo">
                     <p>Paso 1- Seleccione el espectáculo </p>
 
-                    <div class="cafe">
-                        <p> Café Literario</p>
-                        <button id="uno" class="btn-cajita ">Opción 1</button>
-                    </div>
+                    <form id="shows" action="" class="teatro">
 
-                    <div class=teatro>
-                        <p>Teatro Ciego</p>
-                        <button id="dos" class="btn-cajita ">Opción 2</button>
-                    </div>
+                        <label for="campo-show">Seleccione espectáculo</label>
+                        <select name="" id="campo-show" class="desplegable">
+                            <option value="Teatro Ciego">1.Teatro Ciego</option>
+                            <option value="Café Literario">2.Café Literario</option>
+                            <option value="Unipersonal">3.Unipersonal</option>
+                        </select>
 
-                    <div class="uni">
-                        <p>Unipersonal</p>
-                        <button id="tres" class="btn-cajita ">Opción 3</button>
-                    </div>
+
+                        <div class="de-acuerdo">
+                            <input type="submit" id="mostrar" class="boton" value="Mostrar">
+                        </div>
+
+                    </form>
+
                 </div>
+
             </article>
 
             <article class="opciones2">
 
                 <div class="espectaculo2">
 
-                    <p>Paso 2- Selccionar día, medio de pago,ubicación y añadir al carrito</p>
-                    <button id="carrito" class="btn-cajita"><i class="bi bi-cart4"></i></button>
+                    <p>Paso 2- Seleccione ubicación, día y forma de pago </p>
+
+                    <button id="carro" class="btn-cajita"><i class="bi bi-cart4"></i></button>
 
                 </div>
             </article>
 
             <Section>
-                <div class=" espectaculo2">
-                <p>Haga click para asociarse al Teatro ára vivir maravillosas experiencias y descuentos!</p>
-                <h3 id ="asociarse">ASOCIARSE </h3>
+                <div>
+                <p class="formulario">Si quiere ser socio del teatro ingrese sus datos </p>
             </div>
-                
+
+                <form action="" id="membresia" class="datos">
+
+                    <div class="nombre">
+                        <label for="campo-nombre">Nombre y apellido</label>
+                        <input type="text" class="cajita" id="campo-nombre" placeholder="nombre y apellido">
+                    </div>
+
+                    <div class="edad">
+                        <label for="campo-edad">Edad</label>
+                        <input type="text" class="cajita" id="campo-edad" placeholder="edad">
+                    </div>
+
+
+                    <div class="correo">
+                        <label for="campo-correo">Correo electrónico</label>
+                        <input type="email" class="cajita" name="" id="campo-correo" placeholder="correo@ejemplo.com">
+                    </div>
+
+
+                    <div class="de-acuerdo">
+                        <input type="submit" id="enviar" class="boton" value="Enviar">
+                    </div>
+
+
+                </form>
+
+
             </Section>
 
         </section>

@@ -73,7 +73,7 @@ h2:hover {
     width: 90vw;
     margin-top: 2rem;
     margin-left: 1rem;
-    border: solid 3px black;
+    box-shadow: 3px 3px 3px 2px black;
     border-radius: 5px 5px 3px;
 }
 
@@ -97,10 +97,10 @@ h2:hover {
     text-align: center;
     font-size: 1.4rem;
     margin-top: 1rem;
-    border: solid 3px black;
+    box-shadow: 3px 3px 3px 2px black;
     border-radius: 10px;
     width: 60vw;
-    height: 100vh;
+
     gap: 1.5rem;
     padding: 1rem;
 }
@@ -115,30 +115,32 @@ h2:hover {
     color: white;
     width: 80px;
     border-radius: 5px;
+    padding: 0.3rem;
 }
 
-.btn-cajita {
+.btn-cajita:hover {
     transform: scale(1..1);
     background-color: blue;
 
 }
 
-.cafe,
-.teatro,
-.uni {
+
+.teatro {
+    display: flex;
+    flex-direction: column;
     border: solid 3px black;
     border-radius: 10px;
     padding: 0.5rem;
     justify-content: center;
     gap: 0.5rem;
 }
-.cafe:hover,
-.teatro:hover,
-.uni:hover{
-        background-color: grey;
-        border: solid 3px blue;
 
-    }
+.teatro:hover {
+    background-color: grey;
+    border: solid 3px blue;
+    box-shadow: 3px 3px 3px 2px black;
+
+}
 
 
 .espectaculo2 {
@@ -148,7 +150,7 @@ h2:hover {
     text-align: center;
     font-size: 1.4rem;
     margin-top: 1rem;
-    border: solid 3px black;
+    box-shadow: 3px 3px 3px 2px black;
     border-radius: 10px;
     width: 60vw;
 
@@ -156,12 +158,62 @@ h2:hover {
     gap: 1.5rem;
     padding: 1.5rem;
 }
-h3{
+
+h3 {
     font-size: 1.2rem;
     color: blue;
 }
-h3:hover{
+
+h3:hover {
     transform: scale(1, 1) translateY(10px);
     color: black;
 
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    box-shadow: 3px 3px 3px 2px black;
+    border-radius: 5px;
+    gap: 0.5rem;
+}
+.datos:hover{
+    background-color: grey;
+    border: solid 3px blue;
+    box-shadow: 3px 3px 3px 2px black;
+
+}
+
+.edad {
+    display: flex;
+    gap: 6rem;
+
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 0.3rem;
+    border-radius: 6px;
+}
+
+.boton:hover {
+    background-color: blue;
+    color: white;
+
+}
+.formulario{
+    display:flex;
+    margin-top: 2rem;
+}
+.formulario:hover{
+    text-decoration: underline;
+    color: blue;
+    transform: scale(1.1);
 }

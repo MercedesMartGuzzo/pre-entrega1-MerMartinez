@@ -1,33 +1,19 @@
-/*  
-
-l
-*/
-
-const uno = document.querySelector("#uno");
-uno.addEventListener("click", elegirTeatro);
-function elegirTeatro() {
-    alert("Usted seleccionó Teatro Ciego")
-
-}
-
-const dos = document.querySelector("#dos");
-dos.addEventListener("click", elegirCafe);
-function elegirCafe() {
-    alert("Usted seleccionó Café Literario")
+/* Seleccionar espectaculo */
+const shows = document.querySelector("#shows");
+const mostrar = document.querySelector("#mostrar");
+const campoShow = document.querySelector("#campo-show")
 
 
-}
+shows.addEventListener("submit", (e) => {
+    e.preventDefault();
 
+    alert(`Bien hecho! Usted seleccionó ${campoShow.value} Continuamos al paso dos!`)
 
-const tres = document.querySelector("#tres");
-tres.addEventListener("click", elegirUni);
-function elegirUni() {
-    alert("Usted seleccionó Unipersonal")
-
-}
+});
 
 
 
+/* Elegir ubicación,día y formade pago */
 
 const carrito = [];
 
@@ -49,19 +35,20 @@ function sumarAlCarrito() {
 
         let ubicaciones = tickets.find((ticket) => ticket.sector === sectorElegido);
 
+        
         let dia = prompt("Elija el día a concurrir (Miércoles, Jueves o Viernes)").toLowerCase();
         alert("EL día seleccionado es " + dia);
 
-        let formaDePago = prompt("Ingrese la forma en que quiera pagar: Crédito/ Débito /Transferencia Bancaria o pulse (esc) para terminar").toLowerCase();
+        let formaDePago = prompt("Ingrese la forma en que quiera pagar: Credito/ Debito /Transferencia Bancaria o pulse (esc) para terminar").toLowerCase();
 
 
-
+        
         while (formaDePago !== "esc") {
 
-            if (formaDePago === "crédito" && (dia === "miercoles" || dia === "jueves" || dia === "viernes")) {
+            if (formaDePago === "credito" && (dia === "miercoles" || dia === "jueves" || dia === "viernes")) {
                 alert("Con tu entrada te regalamos un trago!🍹");
             }
-            else if (formaDePago === "débito" && (dia === "miercoles" || dia === "jueves" || dia === "viernes")) {
+            else if (formaDePago === "debito" && (dia === "miercoles" || dia === "jueves" || dia === "viernes")) {
                 alert("Con tu compra te regalamos un cupón de descuento en todas nuestras comidas!🍕🍔🥟");
             }
             else if (formaDePago === "transferencia bancaria" && (dia === "miercoles" || dia === "jueves" || dia === "viernes")) {
@@ -73,7 +60,7 @@ function sumarAlCarrito() {
 
             if (formaDePago !== "esc") {
 
-                formaDePago = prompt("Ingrese la forma en que quiera pagar: Crédito/ Débito /Transferencia Bancaria o pulse (esc) para terminar").toLowerCase();
+                formaDePago = prompt("Ingrese la forma en que quiera pagar: Credito/ Debito /Transferencia Bancaria o pulse (esc) para terminar").toLowerCase();
 
             }
         }
@@ -101,6 +88,9 @@ function sumarAlCarrito() {
         }
     }
 
+
+/* Agregar productos al carrito */
+
     const productoSeleccionado = seleccioneLugar();
 
     if (productoSeleccionado) {
@@ -118,62 +108,45 @@ function sumarAlCarrito() {
             sumarAlCarrito();
         } else {
             alert("Gracias por tu compra!");
+            localStorage.setItem("producto-seleccionado", JSON.stringify(productoSeleccionado));
 
         }
     } else {
         alert("No se ha añadido ningún producto al carrito");
     }
-}
 
-function mostrarProductoEnCarrito(producto) {
-    alert(` Producto añadido al carrito:\n
+
+    function mostrarProductoEnCarrito(producto) {
+
+        alert(` Producto añadido al carrito:\n
                 Sector: ${producto.sector}\n
                 Precio: ${producto.precio} pesos\n
                 Día: ${producto.dia}\n
                 Cantidad total de productos en el carrito: ${cantidadProductos};
                 Total a pagar: ${totalAPagar} pesos`);
-}
-
-
-
-let cart = document.querySelector("#carrito");
-cart.addEventListener("click", sumarAlCarrito);
-localStorage.setItem("cart", JSON.stringify(cart))
-
-
-
-let adherirme = document.querySelector("#asociarse");
-asociarse.addEventListener("click", nuevoMiembro);
-localStorage.setItem("asociarse", JSON.stringify(asociarse));
-
-function nuevoMiembro() {
-
-    let invitacion = prompt("¿Desea asociarse a nuestro teatro y obtener increíbles beneficios? SI/NO");
-
-    if (invitacion === "si".toLowerCase()) {
-
-        alert("A continuación, deberá ingresar sus datos");
-
-        class Socios {
-            constructor(nombre, edad, correo) {
-                this.nombre = nombre;
-                this.edad = edad;
-                this.correo = correo;
-            }
-        }
-
-
-        let nombre = prompt("Ingrese su nombre y apellido:");
-        let edad = prompt("Ingrese su edad:");
-        let correo = prompt("Ingrese su correo:");
-
-
-        let nuevoSocio = new Socios(nombre, edad, correo);
-
-        console.log("Nuevo socio: ", nuevoSocio);
-        alert("Bievenida/o al club!! " + nombre + " pronto recibirás un correo con tus beneficos y novedades del teatro")
-    } else {
-        alert("Gracias por su visita. Si cambia de opinión, ¡siempre puede volver!");
     }
+
 }
 
+let carro = document.querySelector("#carro")
+carro.addEventListener("click", sumarAlCarrito);
+
+/* Formulario para asociarse */
+
+const membresia = document.querySelector("#membresia");
+const campoNombre = document.querySelector("#campo-nombre");
+
+const campoEdad = document.querySelector("#campo-edad")
+const campoCorreo = document.querySelector("#campo-correo")
+const enviar = document.querySelector("#enviar");
+
+
+membresia.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert(`Muchas gracias ${campoNombre.value}  por asociarte, tus datos han sido ingresado con éxito! `);
+    localStorage.setItem("campo-nombre", JSON.stringify(campoNombre.value));
+    localStorage.setItem("campo-edad", JSON.stringify(campoEdad.value));
+    localStorage.setItem("campo-correo", JSON.stringify(campoCorreo.value));
+
+
+});
