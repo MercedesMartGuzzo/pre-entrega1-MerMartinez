@@ -18,6 +18,15 @@ a {
 
 img {
     max-width: 100%;
+    border-radius: 1rem;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -31,14 +40,6 @@ header {
 
 }
 
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 h1 {
     display: flex;
     padding-top: 1rem;
@@ -48,6 +49,21 @@ h1 {
     padding-bottom: 0.5rem;
 
 }
+
+/* Carousel */
+.carousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    background-color: white;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: .4rem;
+}
+
+
 
 h2 {
     display: flex;
@@ -63,19 +79,13 @@ h2 {
 }
 
 h2:hover {
-    transform: scale(1, 1) translateY(10px);
-    color: blue;
+    transform: scale(1, 1);
+    color: rgba(8, 97, 8, 0.726);
+
 
 }
 
-.foto-portada {
-    display: flex;
-    width: 90vw;
-    margin-top: 2rem;
-    margin-left: 1rem;
-    box-shadow: 3px 3px 3px 2px black;
-    border-radius: 5px 5px 3px;
-}
+
 
 .cartelera {
     display: flex;
@@ -84,13 +94,9 @@ h2:hover {
     align-items: center;
 }
 
-.cartelerahover {
-    transform: scale(1, 1) translateY(10px);
-    color: blue;
 
-}
 
-.espectaculo {
+.descripcion {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,47 +107,28 @@ h2:hover {
     border-radius: 10px;
     width: 60vw;
 
-    gap: 1.5rem;
+    gap: .3rem;
     padding: 1rem;
 }
 
 
-.btn-cajita {
-    background: black;
+.agregar-show {
+    background-color: rgba(12, 75, 12, 0.651);
     display: flex;
     justify-content: center;
 
     text-align: center;
-    color: white;
-    width: 80px;
+    color: black;
+    width: 90px;
     border-radius: 5px;
-    padding: 0.3rem;
+    padding: .5rem;
+    cursor: pointer;
 }
 
-.btn-cajita:hover {
+.agregar-show:hover {
     transform: scale(1..1);
-    background-color: blue;
 
 }
-
-
-.teatro {
-    display: flex;
-    flex-direction: column;
-    border: solid 3px black;
-    border-radius: 10px;
-    padding: 0.5rem;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.teatro:hover {
-    background-color: grey;
-    border: solid 3px blue;
-    box-shadow: 3px 3px 3px 2px black;
-
-}
-
 
 .espectaculo2 {
     display: flex;
@@ -159,9 +146,13 @@ h2:hover {
     padding: 1.5rem;
 }
 
+.espectaculo2:hover {
+    background-color: grey;
+}
+
 h3 {
-    font-size: 1.2rem;
-    color: blue;
+    font-size: 1.4rem;
+    color: rgba(0, 128, 0, 0.308);
 }
 
 h3:hover {
@@ -182,12 +173,12 @@ h3:hover {
     border-radius: 5px;
     gap: 0.5rem;
 }
-.datos:hover{
-    background-color: grey;
-    border: solid 3px blue;
-    box-shadow: 3px 3px 3px 2px black;
 
+.datos:hover {
+    background-color: grey;
 }
+
+
 
 .edad {
     display: flex;
@@ -200,20 +191,26 @@ h3:hover {
     justify-content: center;
     align-content: center;
     padding: 0.3rem;
+    border: 0;
     border-radius: 6px;
+    background-color: grey;
+    cursor: pointer;
 }
 
 .boton:hover {
-    background-color: blue;
+    background-color: rgba(0, 128, 0, 0.438);
     color: white;
 
 }
-.formulario{
-    display:flex;
+
+.formulario {
+    display: flex;
     margin-top: 2rem;
 }
-.formulario:hover{
+
+.formulario:hover {
     text-decoration: underline;
-    color: blue;
+    color: rgba(0, 128, 0, 0.767);
     transform: scale(1.1);
+
 }

@@ -1,0 +1,42 @@
+[
+    {
+        "id": "1",
+        "nombre": "Teatro Ciego",
+        "foto": "./img/teatrociego.jpg",
+        "dia": "Miécoles",
+        "calificacion": "ATP",
+        "entrada": 12000
+    },
+    {
+        "id": "2",
+        "nombre": "Café Literario",
+        "foto": "./img/cafe-literario.jpg",
+        "dia": "Jueves",
+        "calificacion": "Prohibido para menores de 13 años",
+        "entrada": 8500
+    },
+    {
+        "id": "3",
+        "nombre": "Unipersonal",
+        "foto": "./img/unipersonal.jpg",
+        "dia": "Viernes",
+        "calificacion": "Prohibido para menores de 13 años",
+        "entrada": 10000
+    },
+    {
+        "id": "4",
+        "nombre": "Madreselva",
+        "foto": "./img/madreselva.jpg",
+        "dia": "Sábado",
+        "calificacion": "Prohibido para menores de 13 años",
+        "entrada": 15000
+    },
+    {
+        "id": "5",
+        "nombre": "ART",
+        "foto": "./img/art.jpg",
+        "dia": "Domingo",
+        "calificacion": "ATP",
+        "entrada": 12000
+    }
+]

@@ -5,130 +5,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Pre-Entrega 1</title>
 </head>
 
 <body>
-    <header>
-        <h1> TEATRO DEL PUERTO</h1>
-    </header>
+    <div class=" contenedor">
+        <header>
+            <h1> TEATRO DEL PUERTO</h1>
+        </header>
 
-    <main>
+        <main>
 
-        <div>
-            <h2>BIENVENIDOS A NUESTRO PORTAL</h2>
-        </div>
+            <div>
+                <h2>BIENVENIDOS A NUESTRO PORTAL</h2>
+            </div -->
 
-        <div class="foto-portada">
-            <img src="./img/sala.jpg" alt="sala principal del teatro">
-        </div>
+            <!-- Carousel Bootstrap -->
+            <div id="carousel-teatro" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active rounded">
+                        <img src="./img/cafe-literario.jpg" class="carousel-foto" alt="Cafe literario">
+                    </div>
+                    <div class="carousel-item rounded">
+                        <img src="./img/teatrociego.jpg" class="carousel-foto" alt="Teatro Ciego">
+                    </div>
+                    <div class="carousel-item rounded">
+                        <img src="./img/unipersonal.jpg" class="carousel-foto" alt="Unipersonal">
+                    </div>
+                    <div class="carousel-item rounded">
+                        <img src="./img/madreselva.jpg" class="carousel-foto" alt="Madreselva">
+                    </div>
+                    <div class="carousel-item rounded">
+                        <img src="./img/art.jpg" class="carousel-foto" alt="Art">
+                    </div>
+                    <div class="carousel-item rounded">
+                        <img src="./img/foto-teatro-bn.jpg" class="carousel__foto d-block" alt="hankook">
+                    </div>
+                </div>
+            </div>
 
 
-        <section class=" cartelera">
-            <h2>CARTELERA</h2>
-            <article class="opciones">
-                <div class="espectaculo">
-                    <p>Paso 1- Seleccione el espectáculo </p>
 
-                    <form id="shows" action="" class="teatro">
 
-                        <label for="campo-show">Seleccione espectáculo</label>
-                        <select name="" id="campo-show" class="desplegable">
-                            <option value="Teatro Ciego">1.Teatro Ciego</option>
-                            <option value="Café Literario">2.Café Literario</option>
-                            <option value="Unipersonal">3.Unipersonal</option>
-                        </select>
+            <section class=" cartelera">
+                <h2>CARTELERA</h2>
+                <article class="opciones">
+
+                    <div id="shows" class="espectaculo">
+                        <!--  Esto se  rellenara en js  -->
+                        <button class="agregar-show">Agregar</button>
+                    </div>
+                </article>
+
+
+
+                <article class="opciones2">
+
+                    <div class="espectaculo2">
+
+                        <p>Ver compra </p>
+
+                        <button id="carro" class="btn-cajita"><i class="bi bi-cart4"></i></button>
+
+                    </div>
+                </article>
+
+                <Section>
+                    <div>
+                        <p class="formulario">Si quiere ser socio del teatro ingrese sus datos </p>
+                    </div>
+
+                    <form action="" id="membresia" class="datos">
+
+                        <div class="nombre">
+                            <label for="campo-nombre">Nombre y apellido</label>
+                            <input type="text" class="cajita" id="campo-nombre" placeholder="nombre y apellido">
+                        </div>
+
+                        <div class="edad">
+                            <label for="campo-edad">Edad</label>
+                            <input type="text" class="cajita" id="campo-edad" placeholder="edad">
+                        </div>
+
+
+                        <div class="correo">
+                            <label for="campo-correo">Correo electrónico</label>
+                            <input type="email" class="cajita" name="" id="campo-correo"
+                                placeholder="correo@ejemplo.com">
+                        </div>
 
 
                         <div class="de-acuerdo">
-                            <input type="submit" id="mostrar" class="boton" value="Mostrar">
+                            <input type="submit" id="enviar" class="boton" value="Enviar">
                         </div>
+
 
                     </form>
 
-                </div>
 
-            </article>
+                </Section>
 
-            <article class="opciones2">
-
-                <div class="espectaculo2">
-
-                    <p>Paso 2- Seleccione ubicación, día y forma de pago </p>
-
-                    <button id="carro" class="btn-cajita"><i class="bi bi-cart4"></i></button>
-
-                </div>
-            </article>
-
-            <Section>
-                <div>
-                <p class="formulario">Si quiere ser socio del teatro ingrese sus datos </p>
-            </div>
-
-                <form action="" id="membresia" class="datos">
-
-                    <div class="nombre">
-                        <label for="campo-nombre">Nombre y apellido</label>
-                        <input type="text" class="cajita" id="campo-nombre" placeholder="nombre y apellido">
-                    </div>
-
-                    <div class="edad">
-                        <label for="campo-edad">Edad</label>
-                        <input type="text" class="cajita" id="campo-edad" placeholder="edad">
-                    </div>
-
-
-                    <div class="correo">
-                        <label for="campo-correo">Correo electrónico</label>
-                        <input type="email" class="cajita" name="" id="campo-correo" placeholder="correo@ejemplo.com">
-                    </div>
-
-
-                    <div class="de-acuerdo">
-                        <input type="submit" id="enviar" class="boton" value="Enviar">
-                    </div>
-
-
-                </form>
-
-
-            </Section>
-
-        </section>
+            </section>
 
 
 
 
 
-        <!-- 
-            <div class="espectaculo">
-                <h3>Teatro Ciego</h3>
 
-            <button id="dia" class="btn-cajita " > Día</button>
-            <button id="ubicacion" class="btn-cajita " > Ubicación</button>
-            </div>
+        </main>
 
-            <div class="espectaculo">
-                <h3>Café Literario</h3>
-            
-                <button id="dia" class="btn-cajita "> Comprar</button>
-                <button id="ubicacion1" class="btn-cajita " > Ubicación</button>
-            </div>
-
-            <div class="espectaculo">
-                <h3>Unipersonal</h3>
-                
-                <button id="dia2" class="btn-cajita "> Comprar</button>
-                <button id="ubicacion2" class="btn-cajita " > Ubicación</button>
-            </div>
-
- -->
-
-
-    </main>
-
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/index.js"></script>
 
 </body>
