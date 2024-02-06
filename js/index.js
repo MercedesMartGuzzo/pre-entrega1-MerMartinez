@@ -3,9 +3,9 @@
 let espectaculos = [];
 const shows = document.querySelector("#shows");
 const carrito = [];
-
 let cantidadProductos = 0;
 let totalAPagar = 0;
+const seccionPagar = document.querySelector("#productos-en-carrito")
 
 
 fetch("./js/espectaculos.json")
@@ -23,21 +23,19 @@ function elegirShow(showElegido) {
 
     showElegido.forEach(show => {
         const card = document.createElement("div");
-        card.classList.add("espectaculo");
+        card.classList.add("descripcion");
         card.innerHTML = `          
-            <div clas="espectaculo">
-
-            <div class="descripcion">
+        
+            <div class = "espectaculo" >
                 <h3>${show.nombre}</h3>
                 <img src="${show.foto}">
                 <p>Día: ${show.dia}</p>
                 <p class=descripcion-parrafo>Calificación: ${show.calificacion}</p>
                 <p>Precio $ ${show.entrada}</p>
-                <div>
+                <div class= "boton-pie">
                     <button class="agregar-show" id="${show.id}">Agregar</button>
                 </div>
             </div>
-        </div>
             `;
         shows.appendChild(card);
 
@@ -62,18 +60,9 @@ function sumarAlCarrito(event) {
 
     if (productoSeleccionado) {
         carrito.push(productoSeleccionado);
-
-        cantidadProductos++;
-        totalAPagar += productoSeleccionado.entrada;
-
-
         mostrarProductoEnCarrito(productoSeleccionado);
-        if (productoSeleccionado) {
-
-
-            console.log("Producto agregado al carrito:", productoSeleccionado);
-           
-        }
+        mostrarPrecioTotalEnCarrito();
+        console.log("Producto agregado al carrito:", productoSeleccionado);
     }
 
 
@@ -81,22 +70,140 @@ function sumarAlCarrito(event) {
 
         Swal.fire({
             title: `¡Compra Realizada! Usted seleccionó :${productoSeleccionado.nombre}`,
-            text: `Desea seguir comprando más entradas?`,
-
+            text: "Desea seguir comprando más entradas?",
             icon: "success",
-            confirmButtonColor: `rgba(8, 97, 8, 0.726)`,
+            confirmButtonColor: "rgba(8, 97, 8, 0.726)",
+            confirmButtonText: "Si",
             showCancelButton: true,
-            cancelButtonText: `Fin`,
+            cancelButtonText: "No",
             width: 300,
-        })
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.cancel) {
+                // Si se hace clic en el botón "Cancelar"
+                Swal.fire({
+                    title: `Usted seleccionó :${productoSeleccionado.nombre} con un precio de $:${productoSeleccionado.entrada}`,
+                    text: " Ir a tus compras",
+                    icon: "success",
+                    confirmButtonColor: "rgba(8, 97, 8, 0.726)",
+                    confirmButtonText: "Ir al Carro",
+                    width: 300,
+                }).then((payResult) => {
+                    if (payResult.isConfirmed) {
+                        // Si se hace clic en el botón "Pagar"
+                        mostrarProductosEnSeccionPagar();
+                        sacarPrecioTotalCarrito();
+                        console.log("Redirigiendo a la sección de pagar");
+                        window.location.href = "#carritoTotal";
+                    }
+                });
+            }
+        });
 
 
         console.log("Producto agregado al carrito:", productoSeleccionado);
         localStorage.setItem("producto-seleccionado", JSON.stringify(productoSeleccionado))
 
     }
+}
+
+function mostrarProductosEnSeccionPagar() {
+    const contenedorProductos = document.getElementById("productos-en-carrito");
+    contenedorProductos.innerHTML = ""; // Limpiamos el contenido actual
+
+    carrito.forEach(producto => {
+        const productoDiv = document.createElement("div");
+        productoDiv.classList.add("descripcion2");
+        productoDiv.innerHTML = `
+
+    
+    <div class ="espectaculo">
+                <p>${producto.nombre} </p>
+                <img src="${producto.foto}">
+                <p>Día: ${producto.dia}</p>
+                <p class=descripcion-parrafo>Calificación: ${producto.calificacion}</p>
+                <p>Precio ${producto.entrada}</p>
+            
+            <div>
+            </div>
+        `;
+        contenedorProductos.appendChild(productoDiv);
+    });
 
 }
+
+
+function mostrarPrecioTotalEnCarrito() {
+    const precioTotal = sacarPrecioTotalCarrito();
+    let precioTotalElement = document.getElementById("carritoTotal");
+    if (precioTotalElement) {
+        precioTotalElement.innerText = `$${formatearPrecio(precioTotal)}`;
+    }
+}
+
+
+
+function sacarPrecioTotalCarrito() {
+    let precioTotal = 0;
+    for (const producto of carrito) {
+        precioTotal += producto.entrada;
+    }
+    return precioTotal;
+
+}
+
+function formatearPrecio(precio) {
+    return precio.toFixed(2);
+}
+
+document.getElementById("btnPagar").addEventListener("click", () => {
+    Swal.fire({
+        title: 'Confirmar pago',
+        text: '¿Estás seguro de que deseas realizar el pago?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: 'rgba(8, 97, 8, 0.726)',
+        cancelButtonColor: 'grey',
+        confirmButtonText: 'Sí, pagar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma, realiza el pago
+            setTimeout(() => {
+                Swal.fire({
+                    title: 'Pago realizado',
+                    text: 'Hasta pronto!',
+                    icon: 'succes',
+                    confirmButtonColor: 'rgba(8, 97, 8, 0.726)',
+                });
+            }, 200);
+            pagarTotal();
+        }
+    });
+});
+
+/*  Función para pagar el total */
+function pagarTotal() {
+    const precioTotal = sacarPrecioTotalCarrito();
+    simularPago(precioTotal)
+        .then(() => {
+            console.log("Pago exitoso");
+
+        })
+        .catch(error => {
+            /*  errores durante el pago */
+            console.error("Error durante el pago:", error);
+        });
+    }
+function limpiarCarrito() {
+
+    carrito.length = 0;
+    cantidadProductos = 0;
+    totalAPagar = 0;
+
+    mostrarPrecioTotalEnCarrito();
+    mostrarProductosEnSeccionPagar();
+}
+
 const membresia = document.querySelector("#membresia");
 const campoNombre = document.querySelector("#campo-nombre");
 

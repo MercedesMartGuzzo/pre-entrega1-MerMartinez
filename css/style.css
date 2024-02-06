@@ -94,7 +94,14 @@ h2:hover {
     align-items: center;
 }
 
-
+.espectaculo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    text-align: center;
+}
 
 .descripcion {
     display: flex;
@@ -107,12 +114,16 @@ h2:hover {
     border-radius: 10px;
     width: 60vw;
 
-    gap: .3rem;
+    gap: .2rem;
     padding: 1rem;
 }
 
-
-.agregar-show {
+.boton-pie{
+    display:flex;
+    justify-content: center;
+}
+.agregar-show,
+.pagar-show {
     background-color: rgba(12, 75, 12, 0.651);
     display: flex;
     justify-content: center;
@@ -130,25 +141,23 @@ h2:hover {
 
 }
 
-.espectaculo2 {
+.descripcion2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-top: 1rem;
     box-shadow: 3px 3px 3px 2px black;
     border-radius: 10px;
-    width: 60vw;
+    width: 50vw;
+    background-color: grey;
 
 
     gap: 1.5rem;
     padding: 1.5rem;
 }
 
-.espectaculo2:hover {
-    background-color: grey;
-}
 
 h3 {
     font-size: 1.4rem;
