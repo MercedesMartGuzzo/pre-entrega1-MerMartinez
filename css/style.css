@@ -152,8 +152,6 @@ h2:hover {
     border-radius: 10px;
     width: 60vw;
     background-color: grey;
-
-
     gap: 1rem;
     padding: 1.5rem;
 }
@@ -227,17 +225,49 @@ h3:hover {
     transform: scale(1.1);
 
 }
-
+.footer{
+    display:flex;
+    color:rgba(12, 75, 12, 0.651);
+    margin-top: 1rem;
+}
 
 /* index version desktop */
 @media (min-width: 1200px) {
 
     .carousel {
         display: flex;
-        margin-left: 10rem;
-
+        justify-content: center;
+        align-items: center;
+        width: 40vw;
+        margin-left: 25rem;
+        margin-top: 2rem;
     }
 
+    .carousel-item {
+        display: flex;
+        justify-content: center;
+    }
+
+    .carrito-contenedor {
+        width: 1200px;
+        margin: 0;
+    }
+
+    .productos-en-carrito {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        margin: 1rem;
+    }
+
+    .descripcion2 {
+        width: 80%
+    }
+
+    .precio-total{
+        display: flex;
+        justify-content: center;
+    }
     .formulario {
         display: flex;
         margin-top: 2rem;

@@ -50,7 +50,6 @@ function agregarEventos() {
     botonesAgregar.forEach(boton => {
         boton.addEventListener("click", sumarAlCarrito);
     });
-
 }
 
 
@@ -103,13 +102,9 @@ function mostrarProductoEnCarrito(productoSeleccionado) {
             });
         }
     });
-
-
     console.log("Producto agregado al carrito:", productoSeleccionado);
     localStorage.setItem("producto-seleccionado", JSON.stringify(productoSeleccionado))
-
 }
-
 
 function mostrarProductosEnSeccionPagar() {
     const contenedorProductos = document.getElementById("productos-en-carrito");
@@ -119,8 +114,6 @@ function mostrarProductosEnSeccionPagar() {
         const productoDiv = document.createElement("div");
         productoDiv.classList.add("descripcion2");
         productoDiv.innerHTML = `
-
-    
     <div class ="espectaculo">
                 <p>${show.nombre} </p>
                 <img src="${show.foto}">
@@ -128,7 +121,7 @@ function mostrarProductosEnSeccionPagar() {
                 <p class=descripcion-parrafo>Calificación: ${show.calificacion}</p>
                 <p>Precio ${show.entrada}</p>
                 <div class= "boton-pie">
-                <button class="eliminar-show" id="${show.id}">Eiminar</button>
+                <button class="eliminar-show" id="${show.id}">Eliminar</button>
             </div>
             
             <div>
@@ -139,7 +132,6 @@ function mostrarProductosEnSeccionPagar() {
     botonEliminar();
 }
 
-
 function mostrarPrecioTotalEnCarrito() {
     const precioTotal = sacarPrecioTotalCarrito();
     let precioTotalElement = document.getElementById("carritoTotal");
@@ -147,8 +139,6 @@ function mostrarPrecioTotalEnCarrito() {
         precioTotalElement.innerText = `$${formatearPrecio(precioTotal)}`;
     }
 }
-
-
 
 function sacarPrecioTotalCarrito() {
     let precioTotal = 0;

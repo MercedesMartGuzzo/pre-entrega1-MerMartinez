@@ -3,7 +3,7 @@
         "id": "1",
         "nombre": "Teatro Ciego",
         "foto": "./img/teatrociego.jpg",
-        "dia": "Miécoles",
+        "dia": "Miércoles",
         "calificacion": "ATP",
         "entrada": 12000
     },

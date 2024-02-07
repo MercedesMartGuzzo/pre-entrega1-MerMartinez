@@ -16,20 +16,17 @@
         <header>
             <h1> TEATRO DEL PUERTO</h1>
         </header>
-
+        
         <main class=" contenedor">
-
             <div>
                 <h2>BIENVENIDOS A NUESTRO PORTAL</h2>
-            </div -->
-
+            </div >
             <!-- Carousel Bootstrap -->
             <div id="carousel-teatro" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active rounded">
                         <img src="./img/cafe-literario.jpg" class="carousel-foto" alt="Cafe literario">
                     </div>
-            
                     <div class="carousel-item rounded">
                         <img src="./img/unipersonal.jpg" class="carousel-foto" alt="Unipersonal">
                     </div>
@@ -39,12 +36,9 @@
                     <div class="carousel-item rounded">
                         <img src="./img/art.jpg" class="carousel-foto" alt="Art">
                     </div>
-                
+
                 </div>
             </div>
-
-
-
 
             <section class=" cartelera">
                 <h2>CARTELERA</h2>
@@ -53,14 +47,20 @@
                         <!--  Esto se  rellenara en js  -->
                         <button class="agregar-show">Agregar</button>
                     </div>
+
     </div>
     </article>
 
     <article class="opciones2">
         <div id="seccion-pagar">
-            <div id="productos-en-carrito">
-                <!--  Esto se  rellenara en js  -->
+            <h2>TUS COMPRAS</h2>
+            <div class="carrito-contenedor">
+                <div id="productos-en-carrito" class="productos-en-carrito">
+                    <!--  Esto se  rellenara en js  -->
+                </div>
             </div>
+        </div>
+        <div class="precio-total">
             <div class="descripcion">
                 <p>Precio total de su compra: <span id="carritoTotal">$0.00</span></p>
                 <button id="btnPagar" class="pagar-show">Pagar</button>
@@ -96,15 +96,15 @@
             <div class="de-acuerdo">
                 <input type="submit" id="enviar" class="boton" value="Enviar">
             </div>
-
-
         </form>
-
-
     </section>
 
-
     </main>
+    <footer>
+        <div>
+            <p class="footer"><i class="bi bi-c-circle"></i> mercedesguzzo </i></p>
+        </div>
+    </footer>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -112,7 +112,5 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/index.js"></script>
-
 </body>
-
 </html>
