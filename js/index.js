@@ -6,6 +6,7 @@ const carrito = [];
 let cantidadProductos = 0;
 let totalAPagar = 0;
 const seccionPagar = document.querySelector("#productos-en-carrito")
+let botonesEliminar = document.querySelectorAll(`.eliminar-show`);
 
 
 fetch("./js/espectaculos.json")
@@ -49,7 +50,9 @@ function agregarEventos() {
     botonesAgregar.forEach(boton => {
         boton.addEventListener("click", sumarAlCarrito);
     });
+
 }
+
 
 function sumarAlCarrito(event) {
     const idShowSeleccionado = event.target.id;
@@ -62,73 +65,78 @@ function sumarAlCarrito(event) {
         carrito.push(productoSeleccionado);
         mostrarProductoEnCarrito(productoSeleccionado);
         mostrarPrecioTotalEnCarrito();
+        mostrarProductosEnSeccionPagar(); // Mostrar productos en el carrito después de agregar uno nuevo 
         console.log("Producto agregado al carrito:", productoSeleccionado);
-    }
-
-
-    function mostrarProductoEnCarrito(productoSeleccionado) {
-
-        Swal.fire({
-            title: `¡Compra Realizada! Usted seleccionó :${productoSeleccionado.nombre}`,
-            text: "Desea seguir comprando más entradas?",
-            icon: "success",
-            confirmButtonColor: "rgba(8, 97, 8, 0.726)",
-            confirmButtonText: "Si",
-            showCancelButton: true,
-            cancelButtonText: "No",
-            width: 300,
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.cancel) {
-                // Si se hace clic en el botón "Cancelar"
-                Swal.fire({
-                    title: `Usted seleccionó :${productoSeleccionado.nombre} con un precio de $:${productoSeleccionado.entrada}`,
-                    text: " Ir a tus compras",
-                    icon: "success",
-                    confirmButtonColor: "rgba(8, 97, 8, 0.726)",
-                    confirmButtonText: "Ir al Carro",
-                    width: 300,
-                }).then((payResult) => {
-                    if (payResult.isConfirmed) {
-                        // Si se hace clic en el botón "Pagar"
-                        mostrarProductosEnSeccionPagar();
-                        sacarPrecioTotalCarrito();
-                        console.log("Redirigiendo a la sección de pagar");
-                        window.location.href = "#carritoTotal";
-                    }
-                });
-            }
-        });
-
-
-        console.log("Producto agregado al carrito:", productoSeleccionado);
-        localStorage.setItem("producto-seleccionado", JSON.stringify(productoSeleccionado))
-
     }
 }
+
+
+function mostrarProductoEnCarrito(productoSeleccionado) {
+
+    Swal.fire({
+        title: `¡Compra Realizada! Usted seleccionó :${productoSeleccionado.nombre}`,
+        text: "Desea seguir comprando más entradas?",
+        icon: "success",
+        confirmButtonColor: "rgba(8, 97, 8, 0.726)",
+        confirmButtonText: "Si",
+        showCancelButton: true,
+        cancelButtonText: "No",
+        width: 300,
+    }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.cancel) {
+            // Si se hace clic en el botón "Cancelar"
+            Swal.fire({
+                title: `Usted seleccionó :${productoSeleccionado.nombre} con un precio de $:${productoSeleccionado.entrada}`,
+                text: " Ir a tus compras",
+                icon: "success",
+                confirmButtonColor: "rgba(8, 97, 8, 0.726)",
+                confirmButtonText: "Ir al Carro",
+                width: 300,
+            }).then((payResult) => {
+                if (payResult.isConfirmed) {
+                    // Si se hace clic en el botón "Pagar"
+                    mostrarProductosEnSeccionPagar();
+                    sacarPrecioTotalCarrito();
+                    console.log("Redirigiendo a la sección de pagar");
+                    window.location.href = "#seccion-pagar";
+                }
+            });
+        }
+    });
+
+
+    console.log("Producto agregado al carrito:", productoSeleccionado);
+    localStorage.setItem("producto-seleccionado", JSON.stringify(productoSeleccionado))
+
+}
+
 
 function mostrarProductosEnSeccionPagar() {
     const contenedorProductos = document.getElementById("productos-en-carrito");
     contenedorProductos.innerHTML = ""; // Limpiamos el contenido actual
 
-    carrito.forEach(producto => {
+    carrito.forEach(show => {
         const productoDiv = document.createElement("div");
         productoDiv.classList.add("descripcion2");
         productoDiv.innerHTML = `
 
     
     <div class ="espectaculo">
-                <p>${producto.nombre} </p>
-                <img src="${producto.foto}">
-                <p>Día: ${producto.dia}</p>
-                <p class=descripcion-parrafo>Calificación: ${producto.calificacion}</p>
-                <p>Precio ${producto.entrada}</p>
+                <p>${show.nombre} </p>
+                <img src="${show.foto}">
+                <p>Día: ${show.dia}</p>
+                <p class=descripcion-parrafo>Calificación: ${show.calificacion}</p>
+                <p>Precio ${show.entrada}</p>
+                <div class= "boton-pie">
+                <button class="eliminar-show" id="${show.id}">Eiminar</button>
+            </div>
             
             <div>
             </div>
         `;
         contenedorProductos.appendChild(productoDiv);
     });
-
+    botonEliminar();
 }
 
 
@@ -184,7 +192,7 @@ document.getElementById("btnPagar").addEventListener("click", () => {
 /*  Función para pagar el total */
 function pagarTotal() {
     const precioTotal = sacarPrecioTotalCarrito();
-    simularPago(precioTotal)
+    realizarPago(precioTotal)
         .then(() => {
             console.log("Pago exitoso");
 
@@ -193,15 +201,47 @@ function pagarTotal() {
             /*  errores durante el pago */
             console.error("Error durante el pago:", error);
         });
+}
+
+function botonEliminar() {
+    botonesEliminar = document.querySelectorAll(`.eliminar-show`);
+    botonesEliminar.forEach(boton => {
+        boton.addEventListener(`click`, sacarProductoCarrito);
+    })
+}
+
+function sacarProductoCarrito(event) {
+    const idProducto = event.target.id;
+    const indiceProducto = carrito.findIndex(producto => producto.id === idProducto);
+    console.log(idProducto)
+
+    if (indiceProducto !== -1) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Esta acción eliminará el producto del carrito.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: 'rgba(8, 97, 8, 0.726)',
+            cancelButtonColor: 'grey',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Si el usuario confirma la eliminación, elimina el producto del carrito
+                carrito.splice(indiceProducto, 1);
+                mostrarProductosEnSeccionPagar(); // Actualizar la visualización del carrito
+                mostrarPrecioTotalEnCarrito(); // Actualizar el precio total del carrito
+
+                Swal.fire(
+                    'Eliminado!',
+                    'El producto ha sido eliminado del carrito.',
+                    'success',
+                    'rgba(8, 97, 8, 0.726)'
+                );
+            }
+        });
     }
-function limpiarCarrito() {
 
-    carrito.length = 0;
-    cantidadProductos = 0;
-    totalAPagar = 0;
-
-    mostrarPrecioTotalEnCarrito();
-    mostrarProductosEnSeccionPagar();
 }
 
 const membresia = document.querySelector("#membresia");
@@ -226,5 +266,9 @@ membresia.addEventListener("submit", (e) => {
     localStorage.setItem("campo-correo", JSON.stringify(campoCorreo.value));
 
 
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    botonEliminar();
 });
 

@@ -94,12 +94,12 @@ h2:hover {
     align-items: center;
 }
 
-.espectaculo{
+.espectaculo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    gap: 1rem;
+
     text-align: center;
 }
 
@@ -108,22 +108,22 @@ h2:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-top: 1rem;
     box-shadow: 3px 3px 3px 2px black;
     border-radius: 10px;
     width: 60vw;
-
-    gap: .2rem;
     padding: 1rem;
 }
 
-.boton-pie{
-    display:flex;
+.boton-pie {
+    display: flex;
     justify-content: center;
 }
+
 .agregar-show,
-.pagar-show {
+.pagar-show,
+.eliminar-show {
     background-color: rgba(12, 75, 12, 0.651);
     display: flex;
     justify-content: center;
@@ -147,14 +147,14 @@ h2:hover {
     align-items: center;
     text-align: center;
     font-size: 1.2rem;
-    margin-top: 1rem;
+    margin-top: .5rem;
     box-shadow: 3px 3px 3px 2px black;
     border-radius: 10px;
-    width: 50vw;
+    width: 60vw;
     background-color: grey;
 
 
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 1.5rem;
 }
 
@@ -175,12 +175,14 @@ h3:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
     box-shadow: 3px 3px 3px 2px black;
     border-radius: 5px;
     gap: 0.5rem;
+    width: 80vw;
 }
 
 .datos:hover {
@@ -188,11 +190,11 @@ h3:hover {
 }
 
 
-
 .edad {
     display: flex;
-    gap: 6rem;
+    flex-direction: column;
 
+    text-align: center;
 }
 
 .boton {
@@ -204,6 +206,7 @@ h3:hover {
     border-radius: 6px;
     background-color: grey;
     cursor: pointer;
+
 }
 
 .boton:hover {
@@ -215,6 +218,7 @@ h3:hover {
 .formulario {
     display: flex;
     margin-top: 2rem;
+    text-align: center;
 }
 
 .formulario:hover {
@@ -222,4 +226,46 @@ h3:hover {
     color: rgba(0, 128, 0, 0.767);
     transform: scale(1.1);
 
+}
+
+
+/* index version desktop */
+@media (min-width: 1200px) {
+
+    .carousel {
+        display: flex;
+        margin-left: 10rem;
+
+    }
+
+    .formulario {
+        display: flex;
+        margin-top: 2rem;
+        text-align: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+
+    .datos {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        text-align: start;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        box-shadow: 3px 3px 3px 2px black;
+        border-radius: 5px;
+        gap: 0.5rem;
+        width: 60vw;
+    }
+
+
+    .edad {
+        display: flex;
+        flex-direction: row;
+        gap: 6rem;
+        text-align: center;
+    }
 }
